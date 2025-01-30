@@ -7,8 +7,9 @@ const NavBar = () => {
     return (
         <HStack justifyContent={'space-between'} padding={'10px'}>
             <Image
-                src='https://avatars.mds.yandex.net/i?id=e4f44987ef97a8d7a896708fa238c0b0_l-5257871-images-thumbs&n=13'
+                src='https://app-291201.games.s3.yandex.net/291201/y3qbjcfskdsm8j3i5hrt9a5b5qrfpzhh/logo.png'
                 boxSize='60px'
+                borderRadius="full"
             />
             <Text fontFamily={"Elephant-Regular"} fontSize={"50px"}>GameTracker</Text>
             <ColorModeSwitch/>
