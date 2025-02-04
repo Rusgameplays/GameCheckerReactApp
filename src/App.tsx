@@ -7,8 +7,13 @@ import {Genre} from "./hooks/useGenres";
 import React from "react";
 
 
+export interface GameQuery {
+    genre: Genre | null
+    searchText: string
+}
+
 const App = () => {
-    const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null)
+    const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery)
 
     return <Grid
         templateAreas={{
@@ -21,13 +26,13 @@ const App = () => {
         }}
     >
         <GridItem area="nav">
-            <NavBar/>
+            <NavBar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})}/>
         </GridItem>
         <GridItem area="aside">
-            <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)}/>
+            <GenreList selectedGenre={gameQuery.genre} onSelectGenre={(genre) => setGameQuery({...gameQuery, genre})}/>
         </GridItem>
         <GridItem area="main" paddingX={"17px"}>
-            <GameGrid selectedGenre={selectedGenre}/>
+            <GameGrid gameQuery={gameQuery}/>
         </GridItem>
     </Grid>
 };
